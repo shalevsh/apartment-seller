@@ -11,6 +11,7 @@
 </head>
 
 <body>
+   
 
     <div id="search">
         <input type="text" placeholder="Address" id="addr-input">
@@ -34,10 +35,53 @@
     <hr>
 
     <div id="results"></div>
+    <script id="apartment-template" type="text/x-handlebars-template">
+        {{#if apartments}}
+        {{#each apartments}}
+            <div class="result">
+                <img class="img" src={{this.img}} alt="apartment" />
 
-    <!-- Your Code Here -->
-    <!-- You should start doing handlebar stuff here -->
-    <!-- Your Code Here -->
+                <div class="address">
+                    <h4 class="l-addr">address:</h4>
+                    <p class="l-addr">{{this.address}}</p>
+                </div>
+                        
+                <div class="price">
+                    <h4 class="l-price">price:</h4>
+                    <p class="l-price">{{this.price}}</p>
+                </div>
+ 
+                <div class="rooms">
+                    <h4 class="l-rooms">rooms:</h4> 
+                    <p class="l-rooms">{{this.rooms}}</p> 
+                </div>
+
+
+                <div class="parking">
+                    <h4 class="l-park">parking:</h4> 
+                    <p class="l-park">{{this.parking}}</p>   
+                </div>
+
+                <div class="immediate">
+                    <h4 class="l-immediate">name:</h4>
+                    <p class="l-immediate">{{this.contactDetails.name}}</p>
+                    <h4 class="l-immediate">email:</h4>
+
+                    <p class="l-immediate">{{this.contactDetails.email}}</p>
+                </div>
+
+
+                <div class="immediate">  
+                    <h4 class="l-immediate">immediate:</h4>
+                    <p class="l-immediate">{{this.immediate}}</p>
+                </div>
+
+            </div>
+        {{/each}}
+        {{else}} <div class="no-match">There is no results</div>
+        {{/if}}
+    </script>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.js"></script>
